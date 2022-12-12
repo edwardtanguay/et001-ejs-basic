@@ -9,12 +9,14 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './public/views'));
 
+const appTitle = 'Tech Book Club';
+
 app.get('/', (req: express.Request, res: express.Response) => {
-	res.render('index');
+	res.render('index', { appTitle });
 });
 
 app.get('/info', (req: express.Request, res: express.Response) => {
-	res.render('info');
+	res.render('info', { appTitle });
 });
 
 app.listen(port, () => {
