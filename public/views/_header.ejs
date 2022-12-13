@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 
 <head>
+	<%if(idCode !== null) {%>
+	<meta property="og:title"
+		  content="<%=book.title%>">
+	<meta property="og:type"
+		  content="book" />
+	<meta property="og:description"
+		  content="<%=book.description%>">
+	<meta property="og:image"
+		  content="https://edwardtanguay.vercel.app/share/images/techBooks/<%=book.idCode%>.jpg">
+	<meta property="og:url"
+		  content="https://et001-ejs-basic.onrender.com/<%=book.idCode%>">
+	<meta name="twitter:card"
+		  content="summary_large_image">
+	<%}%>
 	<meta name="viewport"
 		  content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet"
+		  href="/css/main.css">
 	<title>
 		<%=siteData.appTitle%>
 	</title>
@@ -16,13 +31,15 @@
 	<nav>
 		<% siteData.pages.forEach(page=> {%>
 			<%if(page.path===currentPath) {%>
-				<a href="<%=page.path%>" class="active">
+				<a href="<%=page.path%>"
+				   class="active">
 					<%=page.title%>
 				</a>
-			<%} else {%>
-				<a href="<%=page.path%>">
-					<%=page.title%>
-				</a>
-			<%}%>
-		<%})%>
+				<%} else
+					{%>
+					<a href="<%=page.path%>">
+						<%=page.title%>
+					</a>
+					<%}%>
+						<%})%>
 	</nav>
