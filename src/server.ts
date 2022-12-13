@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname, './public/views'));
 
 
 const url = 'https://edwardtanguay.vercel.app/share/techBooks.json';
-// const books = (await axios.get(url,{ headers: { 'Accept-Encoding': 'application/json' } })).data; // axios bug
+// const books = (await axios.get(url,{ headers: { 'Accept-Encoding': 'application/json' } })).data; // axios bug fix
 const books:any = await (await fetch(url)).json();
 
 const siteData = {
