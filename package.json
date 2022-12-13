@@ -7,6 +7,7 @@
 	"scripts": {
 		"dev": "nodemon",
 		"start": "npm install && npm run build && node dist/server.js",
+		"deploy": "git pull && npm start",
 		"build": "tsc"
 	},
 	"nodemonConfig": {
