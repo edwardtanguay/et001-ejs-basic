@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './public/views'));
 const url = 'https://edwardtanguay.vercel.app/share/techBooks.json';
-// const books = (await axios.get(url,{ headers: { 'Accept-Encoding': 'application/json' } })).data; // axios bug
+// const books = (await axios.get(url,{ headers: { 'Accept-Encoding': 'application/json' } })).data; // axios bug fix
 const books = await (await fetch(url)).json();
 const siteData = {
     appTitle: 'Tech Book Club',
