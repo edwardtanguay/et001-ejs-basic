@@ -3,7 +3,7 @@
 		<p>These are our current books:</p>
 		<div class="books">
 			<% siteData.books.forEach(book=> {%>
-				<a href="/info/<%=book.idCode%>"><img src="https://edwardtanguay.vercel.app/share/images/techBooks/<%=book.idCode%>.jpg" /></a>
+				<a href="/books/<%=book.idCode%>"><img src="https://edwardtanguay.vercel.app/share/images/techBooks/<%=book.idCode%>.jpg" /></a>
 			<%})%>
 		</div>
 	<%} else {%>

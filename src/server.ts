@@ -24,8 +24,8 @@ const siteData = {
 			path: '/'
 		},
 		{
-			title: 'Info',
-			path: '/info'
+			title: 'Books',
+			path: '/books'
 		}
 	],
 	books
@@ -35,13 +35,13 @@ app.get('/', (req: express.Request, res: express.Response) => {
 	res.render('index', { siteData, currentPath: '/' });
 });
 
-app.get('/info', (req: express.Request, res: express.Response) => {
-	res.render('info', { siteData, currentPath: '/info', idCode: null });
+app.get('/books', (req: express.Request, res: express.Response) => {
+	res.render('books', { siteData, currentPath: '/books', idCode: null });
 });
 
-app.get('/info/:idCode', (req: express.Request, res: express.Response) => {
+app.get('/books/:idCode', (req: express.Request, res: express.Response) => {
 	const idCode = req.params.idCode;
-	res.render('info', { siteData, currentPath: '/info', idCode, book: books.find((m: any) => m.idCode === idCode) })
+	res.render('books', { siteData, currentPath: '/books', idCode, book: books.find((m: any) => m.idCode === idCode) })
 });
 
 app.listen(port, () => {
