@@ -25,7 +25,7 @@ const siteData = {
     books
 };
 app.get('/', (req, res) => {
-    res.render('index', { siteData, currentPath: '/' });
+    res.render('index', { siteData, currentPath: '/', idCode: null });
 });
 app.get('/books', (req, res) => {
     res.render('books', { siteData, currentPath: '/books', idCode: null });
