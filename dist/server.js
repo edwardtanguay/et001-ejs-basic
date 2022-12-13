@@ -28,7 +28,11 @@ app.get('/', (req, res) => {
     res.render('index', { siteData, currentPath: '/' });
 });
 app.get('/info', (req, res) => {
-    res.render('info', { siteData, currentPath: '/info' });
+    res.render('info', { siteData, currentPath: '/info', idCode: null });
+});
+app.get('/info/:idCode', (req, res) => {
+    const idCode = req.params.idCode;
+    res.render('info', { siteData, currentPath: '/info', idCode, book: books.find((m) => m.idCode === idCode) });
 });
 app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`);

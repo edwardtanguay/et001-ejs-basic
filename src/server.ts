@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, './public/views'));
 
 const url = 'https://edwardtanguay.vercel.app/share/techBooks.json';
 // const books = (await axios.get(url,{ headers: { 'Accept-Encoding': 'application/json' } })).data; // axios bug
-const books = await (await fetch(url)).json();
+const books:any = await (await fetch(url)).json();
 
 const siteData = {
 	appTitle: 'Tech Book Club',
@@ -32,11 +32,16 @@ const siteData = {
 }
 
 app.get('/', (req: express.Request, res: express.Response) => {
-	res.render('index', {siteData, currentPath: '/'});
+	res.render('index', { siteData, currentPath: '/' });
 });
 
 app.get('/info', (req: express.Request, res: express.Response) => {
-	res.render('info', {siteData, currentPath: '/info'});
+	res.render('info', { siteData, currentPath: '/info', idCode: null });
+});
+
+app.get('/info/:idCode', (req: express.Request, res: express.Response) => {
+	const idCode = req.params.idCode;
+	res.render('info', { siteData, currentPath: '/info', idCode, book: books.find((m: any) => m.idCode === idCode) })
 });
 
 app.listen(port, () => {
